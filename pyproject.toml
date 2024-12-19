@@ -5,14 +5,14 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "mkdocs_test"
 authors = [
-    "Anders Brakestad <anders.brakestad@akerbp.com>",
+    "Vetle Nevland <vetle.nevland@akerbp.com>",
     ]
 description = "Repository template for Python projects."
 readme = "README.md"
 version = "0.0.1"
 
 [[tool.poetry.packages]]
-include = "coe_ioc_python_project_template"
+include = "mkdocs_test"
 
 [tool.poetry.dependencies]
 python = "^3.11"
