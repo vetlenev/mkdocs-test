@@ -1,0 +1,46 @@
+name: gh-copy-mkdocs-to-repo
+on:
+  push:
+    branches: [main] # branch to trigger deployment
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install Poetry and documentation dependencies
+        run: |
+          pip install poetry
+          poetry config virtualenvs.create false
+          poetry install --with docs
+      - name: Build mkdocs doc
+        run: |
+          mkdocs build
+          mkdir -p docs/build/publish/docs/
+          cp -r site/* docs/build/publish/docs/
+          cp README.md docs/build/publish/README.md
+      - name: List contents of site/
+        run: |
+          ls -R site/
+      - name: List contents of docs/build/publish
+        run: |
+          ls -R docs/build/publish
+      - name: Copy docs/publish to gh/akerbp/dig-handbook-mkdocs/tree/git-docs/
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: docs/build/publish
+          destination-github-username: "AkerBP"
+          destination-repository-name: "dig-handbook-mkdocs"
+          target-branch: git-docs
+          target-directory: docs/code/EXPRES/${{ github.event.repository.name }}
+          user-email: jon.steinar.folstad@gmail.com
+          user-name: folstad
+          ccommit-message: "[GHA] Update Expres Copilot Data docs html files."
