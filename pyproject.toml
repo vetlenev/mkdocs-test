@@ -3,7 +3,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "coe-ioc-python-project-template"
+name = "mkdocs_test"
 authors = [
     "Anders Brakestad <anders.brakestad@akerbp.com>",
     ]
@@ -16,6 +16,8 @@ include = "coe_ioc_python_project_template"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+mkdocs = "^1.6.1"
+mkdocstrings = {extras = ["python"], version = "^0.27.0"}
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.1"

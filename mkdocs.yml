@@ -1,0 +1,9 @@
+site_name: MkDocs Testing
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_root_heading: true
+            show_signature: true
+            show_source: false
