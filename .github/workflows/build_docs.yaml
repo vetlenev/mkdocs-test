@@ -26,7 +26,7 @@ jobs:
 
       - name: Generate .rst files for modules
         run: |
-          sphinx-apidoc -o ./docs/source ./coe_ioc_python_project_template
+          sphinx-apidoc -o ./docs/source ./mkdocs-test
 
       - name: make the sphinx docs
         run: |
