@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdocs build
           mkdir -p docs/build/publish/docs/
-          cp -r site/* docs/build/publish/docs/
+          cp -r site/ docs/build/publish/docs/
           cp README.md docs/build/publish/README.md
       - name: List contents of site/
         run: |
