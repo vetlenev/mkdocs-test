@@ -25,7 +25,7 @@ jobs:
           mkdir -p docs/build/publish/docs/
           cp -r site/ docs/build/publish/docs/
           cp README.md docs/build/publish/README.md
-          printf "nav:\n  - README.md\n  - docs: ./code/Operations/mkdocs-test/docs/" > docs/build/publish/.pages
+          printf "nav:\n  - README.md\n  - docs: ./code/Operations/mkdocs-test/docs/site/" > docs/build/publish/.pages
       - name: List contents of site/
         run: |
           ls -R site/
