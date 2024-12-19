@@ -40,7 +40,7 @@ jobs:
           destination-github-username: "AkerBP"
           destination-repository-name: "dig-handbook-mkdocs"
           target-branch: git-docs
-          target-directory: docs/code/EXPRES/${{ github.event.repository.name }}
-          user-email: jon.steinar.folstad@gmail.com
-          user-name: folstad
-          ccommit-message: "[GHA] Update Expres Copilot Data docs html files."
+          target-directory: docs/code/Operations/${{ github.event.repository.name }}
+          user-email: vetle.nevland@gmail.com
+          user-name: vetlenev
+          ccommit-message: "[GHA] Update MkDocs Test docs html files."
